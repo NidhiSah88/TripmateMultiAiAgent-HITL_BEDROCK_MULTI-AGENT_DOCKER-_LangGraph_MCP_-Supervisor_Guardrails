@@ -11,9 +11,49 @@ conda activate travel
 insta the req 
 pip install -r requirements.txt 
 
+# sslmode=require is needed so that we can connect to remote postgresql server
+
+pip install certifi
+pip install certifi "psycopg[binary,pool]" langgraph langgraph-checkpoint-postgres
+
+3. Verify certifi
+python -c "import certifi; print(certifi.where())"
 
 
 
-/Users/nidhikumari/Desktop/TRIPMATE_AI_HITL_BEDROCK_MULTI-AGENT_DOCKER-_LangGraph_MCP_ Supervisor_Guardrails/readme
+Step 1. Delete existing Conda environment
+You are currently in (base), so run:
+conda env remove -n travel -y
+
+Verify:
+conda env list
+
+
+Step 3. Activate the environment
+source travel/bin/activate
+
+Step 5. Install requirements
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+
+Step 6. Verify PostgreSQL and LangGraph
+python -c "import certifi; print('certifi OK')"
+python -c "import psycopg; print('psycopg OK')"
+python -c "import psycopg_pool; print('psycopg_pool OK')"
+python -c "from langgraph.checkpoint.postgres import PostgresSaver; print('PostgresSaver OK')"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
