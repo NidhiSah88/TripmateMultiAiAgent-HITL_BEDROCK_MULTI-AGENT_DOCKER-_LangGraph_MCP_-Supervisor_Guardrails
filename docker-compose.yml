@@ -1,0 +1,34 @@
+
+
+services:
+  tripmate-db:
+    image: pgvector/pgvector:pg16
+    container_name: tripmate-postgres
+
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: ${TripMateAiAgentMemory}
+      POSTGRES_USER: ${nidhi}
+      POSTGRES_PASSWORD: ${12345}
+
+    ports:
+      - "127.0.0.1:5433:5432"
+
+    volumes:
+      - tripmate_postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  tripmate_postgres_data:
+    name: tripmate_postgres_data
+
+

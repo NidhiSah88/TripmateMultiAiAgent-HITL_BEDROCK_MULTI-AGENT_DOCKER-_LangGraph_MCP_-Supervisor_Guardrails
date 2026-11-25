@@ -1,0 +1,19 @@
+
+https://www.youtube.com/watch?v=BM39OouLNsM
+ 
+
+create the virtual env 
+conda create -n travel python=3.11 -y 
+
+activate the env 
+conda activate travel 
+
+insta the req 
+pip install -r requirements.txt 
+
+
+
+
+/Users/nidhikumari/Desktop/TRIPMATE_AI_HITL_BEDROCK_MULTI-AGENT_DOCKER-_LangGraph_MCP_ Supervisor_Guardrails/readme
+
+
